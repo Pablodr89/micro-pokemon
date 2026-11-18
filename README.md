@@ -1,1 +1,1 @@
-Aplicación de listado, componer equipos y combates pokemon realizado con microfrontends
+Aplicación de listado, componer equipos y combates pokemon realizado con microfrontends en React+TS y Tailwind. Consume la API de pokemon a través de Tanstack Query y controla el estado global con Zustand.
