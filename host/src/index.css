@@ -1,0 +1,176 @@
+@import "tailwindcss";
+@source "../../homeApp/src";
+@source "../../teamsApp/src";
+@source "../../combatApp/src";
+@source "../../packages/ui/src";
+
+@theme inline {
+  --color-on-primary-fixed-variant: #18217d;
+  --color-secondary-container: #ffdad7;
+  --color-surface-variant: #dce3e9;
+  --color-secondary-fixed-dim: #ffc7c3;
+  --color-primary-fixed: #929bfa;
+  --color-secondary-dim: #a80b1d;
+  --color-surface-container-lowest: #ffffff;
+  --color-on-background: #2c3338;
+  --color-inverse-surface: #0b0f11;
+  --color-on-secondary-container: #a6091c;
+  --color-surface-container-highest: #dce3e;
+  --color-on-tertiary-fixed-variant: #005d5;
+  --color-tertiary-fixed-dim: #71d7cd;
+  --color-error: #a8364b;
+  --color-on-primary-container: #0b1574;
+  --color-tertiary-dim: #005e57;
+  --color-primary: #4d56b0;
+  --color-on-error-container: #6e0523;
+  --color-inverse-on-surface: #9a9da0;
+  --color-on-surface: #2c3338;
+  --color-surface-dim: #d4dbe1;
+  --color-on-secondary-fixed-variant: #b419;
+  --color-tertiary-container: #7fe6db;
+  --color-surface-container-low: #f0f4f8;
+  --color-outline: #747c81;
+  --color-on-secondary-fixed: #850012;
+  --color-on-tertiary: #e2fffa;
+  --color-on-error: #fff7f7;
+  --color-outline-variant: #abb3b9;
+  --color-on-surface-variant: #596065;
+  --color-secondary: #ba1d27;
+  --color-tertiary-fixed: #7fe6db;
+  --color-surface-tint: #4d56b0;
+  --color-surface: #f7f9fc;
+  --color-surface-container: #e9eef3;
+  --color-primary-container: #929bfa;
+  --color-secondary-fixed: #ffdad7;
+  --color-tertiary: #006b64;
+  --color-error-container: #f97386;
+  --color-background: #f7f9fc;
+  --color-on-tertiary-container: #00534d;
+  --color-surface-bright: #f7f9fc;
+  --color-on-tertiary-fixed: #003e39;
+  --color-primary-fixed-dim: #858eec;
+  --color-on-primary: #020618;
+  --color-surface-container-high: #e3e9ee;
+  --color-on-primary-fixed: #000005;
+  --color-error-dim: #6b0221;
+  --color-inverse-primary: #929bfa;
+  --color-primary-dim: #414aa3;
+  --color-on-secondary: #fff7f6;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+
+body {
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+  font-family: "Inter", sans-serif;
+}
+
+.animate-in {
+  animation: animateIn 0.3s ease-in-out both;
+}
+
+@keyframes animateIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.type-fire {
+  background: linear-gradient(135deg, #ff5f6d 0%, #ffc371 100%);
+}
+
+.type-water {
+  background: linear-gradient(135deg, #2193b0 0%, #6dd5ed 100%);
+}
+
+.type-grass {
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+}
+
+.type-electric {
+  background: linear-gradient(135deg, #fcefa1 0%, #f7db4f 100%);
+}
+
+.type-poison {
+  background: linear-gradient(135deg, #a044ff 0%, #6a3093 100%);
+  color: #ffffff;
+}
+
+.type-psychic {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: #ffffff;
+}
+
+.type-dragon {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #ffffff;
+}
+
+.type-ice {
+  background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+  color: #1a237e;
+}
+
+.type-ground {
+  background: linear-gradient(
+    135deg,
+    #f40752 0%,
+    #f9d423 100%
+  ); /* Editorial interpretation of ground/earth tones */
+  color: #ffffff;
+}
+
+.type-bug {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: #ffffff;
+}
+
+.type-flying {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  color: #ffffff;
+}
+
+.type-fairy {
+  background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+  color: #1a237e;
+}
+
+.type-normal {
+  background: linear-gradient(135deg, #bdc3c7 0%, #2c3e50 100%);
+  color: #ffffff;
+}
+
+.type-ghost {
+  background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+  color: #ffffff;
+}
+
+.type-rock {
+  background: linear-gradient(135deg, #868f96 0%, #596164 100%);
+  color: #ffffff;
+}
+
+.type-fighting {
+  background: linear-gradient(135deg, #ed1c24 0%, #aa076b 100%);
+  color: #ffffff;
+}
+
+.type-steel {
+  background: linear-gradient(135deg, #e6e9f0 0%, #eef1f5 100%);
+  color: #1a237e;
+}
+
+.type-dark {
+  background: linear-gradient(135deg, #232526 0%, #414345 100%);
+  color: #ffffff;
+}

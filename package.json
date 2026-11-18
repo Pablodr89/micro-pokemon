@@ -1,0 +1,24 @@
+{
+  "name": "micro-pokemon",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "host",
+    "homeApp",
+    "teamsApp",
+    "combatApp"
+  ],
+  "scripts": {
+    "dev:host": "npm run dev -w host",
+    "dev:home": "npm run dev -w homeApp",
+    "dev:teams": "npm run dev -w teamsApp",
+    "dev:combat": "npm run dev -w combatApp",
+    "build:remotes": "npm run build -w homeApp -w teamsApp -w combatApp",
+    "preview:remotes": "concurrently -n home,teams,combat \"npm run preview -w homeApp\" \"npm run preview -w teamsApp\" \"npm run preview -w combatApp\"",
+    "start": "npm run build:remotes && concurrently -n remotes,host \"npm run preview:remotes\" \"npm run dev:host\"",
+    "start:nobuild": "concurrently -n remotes,host \"npm run preview:remotes\" \"npm run dev:host\""
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.7"
+  }
+}
