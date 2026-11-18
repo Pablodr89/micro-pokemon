@@ -3,7 +3,7 @@ import { useGetPokemonList } from "./hooks/usePokemonList";
 import { useSearchPokemon } from "./hooks/useSearchPokemon";
 import { useFilterTypePokemon } from "./hooks/useTypePokemon";
 import Card from "./components/Card";
-import Spinner from "./components/Spinner/Spinner";
+import Spinner from "./components/Spinner";
 import Filters from "./components/Filters";
 import ErrorSearchPokemon from "./components/ErrorSearchPokemon";
 import SearchBar from "./components/SearchBar";
