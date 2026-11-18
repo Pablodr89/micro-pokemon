@@ -1,6 +1,4 @@
 import react from "@vitejs/plugin-react";
-// import react, { reactCompilerPreset } from "@vitejs/plugin-react";
-// import babel from "@rolldown/plugin-babel";
 import { defineConfig } from "vite";
 import originFederation from "@originjs/vite-plugin-federation";
 
@@ -8,7 +6,11 @@ import originFederation from "@originjs/vite-plugin-federation";
 const federation = originFederation as unknown as (options: any) => any;
 
 // https://vite.dev/config/
-export default defineConfig({
+export default defineConfig(({ command }) => ({
+  base:
+    command === "build"
+      ? `${process.env.APP_URL ?? "http://localhost:5001"}/`
+      : "/",
   plugins: [
     react(),
     federation({
@@ -31,7 +33,6 @@ export default defineConfig({
         "@mf/context": { singleton: true },
       },
     }),
-    // babel({ presets: [reactCompilerPreset()] }),
   ],
   server: {
     port: 5001,
@@ -43,4 +44,4 @@ export default defineConfig({
     minify: false,
     cssCodeSplit: false,
   },
-});
+}));

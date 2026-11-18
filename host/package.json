@@ -10,9 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@mf/stores": "*",
     "@mf/assets": "*",
     "@mf/context": "*",
+    "@mf/stores": "*",
     "@mf/ui": "*",
     "@tailwindcss/vite": "^4.3.5",
     "react": "^19.3.1",
@@ -21,16 +21,12 @@
     "tailwindcss": "^4.3.5"
   },
   "devDependencies": {
-    "@babel/core": "^7.29.7",
     "@eslint/js": "^10.0.1",
     "@originjs/vite-plugin-federation": "^1.4.1",
-    "@rolldown/plugin-babel": "^0.3.0",
-    "@types/babel__core": "^7.20.5",
     "@types/node": "^24.19.2",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6.1.2",
-    "babel-plugin-react-compiler": "^1.0.0",
     "eslint": "^10.14.0",
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.7",

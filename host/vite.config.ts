@@ -1,7 +1,5 @@
 import react from "@vitejs/plugin-react";
-// import react, { reactCompilerPreset } from "@vitejs/plugin-react";
-// import babel from "@rolldown/plugin-babel";
-import { defineConfig } from "vite";
+import { defineConfig, loadEnv } from "vite";
 import tailwindcss from "@tailwindcss/vite";
 import originFederation from "@originjs/vite-plugin-federation";
 
@@ -9,40 +7,46 @@ import originFederation from "@originjs/vite-plugin-federation";
 const federation = originFederation as unknown as (options: any) => any;
 
 // https://vite.dev/config/
-export default defineConfig({
-  plugins: [
-    react(),
-    federation({
-      name: "host",
-      remotes: {
-        homeApp: "http://localhost:5001/assets/remoteEntry.js",
-        teamsApp: "http://localhost:5002/assets/remoteEntry.js",
-        combatApp: "http://localhost:5003/assets/remoteEntry.js",
-      },
-      shared: {
-        react: {
-          singleton: true,
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, process.cwd(), "");
+  const home = env.HOME_URL ?? "http://localhost:5001";
+  const teams = env.TEAMS_URL ?? "http://localhost:5002";
+  const combat = env.COMBAT_URL ?? "http://localhost:5003";
+
+  return {
+    plugins: [
+      react(),
+      federation({
+        name: "host",
+        remotes: {
+          homeApp: `${home}/assets/remoteEntry.js`,
+          teamsApp: `${teams}/assets/remoteEntry.js`,
+          combatApp: `${combat}/assets/remoteEntry.js`,
         },
-        "react-dom": {
-          singleton: true,
+        shared: {
+          react: {
+            singleton: true,
+          },
+          "react-dom": {
+            singleton: true,
+          },
+          zustand: {
+            singleton: true,
+          },
+          "@mf/stores": { singleton: true },
+          "@mf/context": { singleton: true },
         },
-        zustand: {
-          singleton: true,
-        },
-        "@mf/stores": { singleton: true },
-        "@mf/context": { singleton: true },
-      },
-    }),
-    tailwindcss(),
-    // babel({ presets: [reactCompilerPreset()] }),
-  ],
-  server: {
-    port: 5000,
-  },
-  build: {
-    modulePreload: false,
-    target: "esnext",
-    minify: false,
-    cssCodeSplit: false,
-  },
+      }),
+      tailwindcss(),
+    ],
+    server: {
+      port: 5000,
+    },
+    build: {
+      modulePreload: false,
+      target: "esnext",
+      minify: false,
+      cssCodeSplit: false,
+    },
+  };
 });
